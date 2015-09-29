@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Manejador del evento Click del botón Convertir
     public void convertir(View v){
-        divisas = new Divisas(etxEuros, etxDolares);
+        divisas = new Divisas(etxEuros, etxDolares, this);
 
         if(etxDolares.hasFocus()){
             divisas.DolaresAEuros();

@@ -1,6 +1,7 @@
 package com.example.primera.conversordivisas;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.widget.EditText;
 
 /**
@@ -12,10 +13,12 @@ public class Divisas {
     private double indiceConversion = 0.893227;
     private  EditText etxEuros;
     private EditText etxDolares;
+    private Context context;
 
-    public Divisas(EditText etxEuros, EditText etxDolares){
+    public Divisas(EditText etxEuros, EditText etxDolares, Context context){
         this.etxEuros = etxEuros;
-        this. etxDolares=etxDolares;
+        this. etxDolares = etxDolares;
+        this.context = context;
     }
 
     public void EurosADolares() {
@@ -24,7 +27,7 @@ public class Divisas {
             etxDolares.setText(String.valueOf(String.format("%.2f", dolar))); //Redondeo a dos decimales
         }
         catch (Exception e){
-            AlertDialog.Builder alertaE  = new AlertDialog.Builder(null);
+            AlertDialog.Builder alertaE  = new AlertDialog.Builder(context);
             alertaE.setMessage("Introduce los euros a convertir");
             alertaE.setPositiveButton("Ok",null);
             alertaE.create().show();
@@ -37,7 +40,7 @@ public class Divisas {
             etxEuros.setText(String.valueOf(String.format("%.2f", euro)));  //Redondeo a dos decimales
         }
         catch (Exception e){
-            AlertDialog.Builder alertaD  = new AlertDialog.Builder(null);
+            AlertDialog.Builder alertaD  = new AlertDialog.Builder(context);
             alertaD.setMessage("Introduce los dólares a convertir");
             alertaD.setPositiveButton("Ok",null);
             alertaD.create().show();
